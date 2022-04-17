@@ -59,7 +59,7 @@ class PostController extends Controller
                 'description'=>'any description of ali'
             ],
         ];
-        
+        return view('posts.show', ["post" => $posts[$postId - 1]]);
 
     }
 }
