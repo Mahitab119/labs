@@ -17,12 +17,13 @@
               </tr>
             </thead>
             <tbody>
-            @foreach ( $posts as $post)        
+            @foreach ( $posts as $post)  
+
               <tr>
-                <td>{{ $post['id'] }}</th>
-                <td>{{ $post['title'] }}</td>
-                <td>{{ $post['post_creator'] }}</td>
-                <td>{{ $post['created_at'] }}</td>
+                <td>{{ $post->id }}</th>
+                <td>{{ $post->title }}</td>
+                <td>{{ $post->user->name }}</td>
+                <td>{{ $post->created_at }}</td>
                 <td>
                     <a href="{{ route('posts.show', ['post' => $post['id']]) }}" class="btn btn-info">View</a>
                     <a href="{{ route('posts.edit' , ['post' => $post['id']]) }}" class="btn btn-primary">Edit</a>
