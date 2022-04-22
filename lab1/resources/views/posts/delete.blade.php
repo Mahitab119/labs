@@ -1,10 +1,11 @@
+
 @extends('layouts.app')
 
 @section('title')Delete @endsection
 
 @section('content')
 <div class="container p-5">
-    <form method="post" action="{{route('posts.destroy',$posts['id'])}}">
+    <form method="post" action="{{route('posts.delete',['post' => $post['id']])}}">
         <p class="lead text-center">Are you sure you want to delete this post?</p>
         <div class="d-flex justify-content-center align-items-center">
             <div class="px-2">

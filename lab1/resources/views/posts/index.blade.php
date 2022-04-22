@@ -23,7 +23,7 @@
                 <td>{{ $post->id }}</th>
                 <td>{{ $post->title }}</td>
                 <td>{{ $post->user->name }}</td>
-                <td>{{ $post->created_at }}</td>
+                <td>{{\Carbon\Carbon::parse($post->created_at)->format('Y-m-d') }}</td>
                 <td>
                     <a href="{{ route('posts.show', ['post' => $post['id']]) }}" class="btn btn-info">View</a>
                     <a href="{{ route('posts.edit' , ['post' => $post['id']]) }}" class="btn btn-primary">Edit</a>
