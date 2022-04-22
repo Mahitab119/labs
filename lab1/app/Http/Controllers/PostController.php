@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\UpdatePostRequest;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
@@ -24,7 +27,7 @@ class PostController extends Controller
         return view('posts.create', ["users" => $users]);
     }
 
-    public function store()
+    public function store(StorePostRequest $request)
     {
         $data=request()->all();
         Post::create([
@@ -58,7 +61,7 @@ class PostController extends Controller
         ]);
     } 
 
-    public function update($postId){
+    public function update($postId , UpdatePostRequest $request){
         $data=request()->all();
         Post::where('id',$postId)->update([
             'title' => $data['title'],
