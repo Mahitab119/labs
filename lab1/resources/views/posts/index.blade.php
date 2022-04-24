@@ -13,8 +13,8 @@
       <th scope="col">Title</th>
       <th scope="col">Slug</th>
       <th scope="col">Posted By</th>
-      <th scope="col">Created At</th>
       <th scope="col">Photo</th>
+      <th scope="col">Created At</th>
       <th scope="col">Actions</th>
     </tr>
   </thead>
@@ -26,7 +26,7 @@
       <td>{{ $post->title }}</td>
       <td>{{$post->slug}}</td>
       <td>{{ $post->user->name }}</td>
-      <img src="{{$post->featrued}}" alt="{{$post->title}}" class="img-thumbnail" width="100px" height="100px">
+      <td><img src="{{$post->featrued}}" alt="{{$post->title}}" class="img-thumbnail" width="100px" height="100px"></td>
       <td>{{\Carbon\Carbon::parse($post->created_at)->format('Y-m-d') }}</td>
       <td>
         <a href="{{ route('posts.show', ['post' => $post['id']]) }}" class="btn btn-info">View</a>

@@ -31,14 +31,14 @@ class PostController extends Controller
     {
         $data=request()->all();
 
-        $featured = $request->featured;
-        $photo = time().$featured->getClientOriginalName();
-        $featured->move('uploads/posts',$photo);
+        $featured = $request->file('featured');
+       // $photo = time().$featured->getClientOriginalName();
+       // $featured->move('uploads/posts',$photo);
 
         Post::create([
             'title' => $data['title'],
             'description' => $data['description'],
-            "featrued" => 'uploads/posts/'.$photo,
+            "featrued" => 'uploads/posts/'.$featured,
             'user_id' => $data['postCreator']
         ]);
         return redirect()->route('posts.index');

@@ -12,7 +12,7 @@
     </ul>
 </div>
 @endif
-<form method="post" action="{{ route('posts.update',['post' => $post['id']])}}">
+<form method="post" enctype="multipart/form-data" action="{{ route('posts.update',['post' => $post['id']])}}">
     @csrf
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Title</label>
