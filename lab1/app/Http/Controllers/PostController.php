@@ -22,7 +22,7 @@ class PostController extends Controller
     }
 
     public function create()
-    {
+    {   
         $users=User::all();
         return view('posts.create', ["users" => $users]);
     }
@@ -32,6 +32,7 @@ class PostController extends Controller
         $data=request()->all();
         Post::create([
             'title' => $data['title'],
+            'slug' =>$data['slug'],
             'description' => $data['description'],
             'user_id' => $data['postCreator']
         ]);

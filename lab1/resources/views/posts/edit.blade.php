@@ -17,8 +17,13 @@
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Title</label>
         <input type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="" value="{{$post->title}}">
-
     </div>
+
+    <div class="mb-3">
+        <label for="slug" class="form-label">Slug</label>
+        <input type="text" name="slug" class="form-control" id="slug" value="{{$post->slug}}">
+    </div>
+
     <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Description</label>
         <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3" value="{{$post->description}}"></textarea>
