@@ -26,7 +26,8 @@ class StorePostRequest extends FormRequest
         return [
            'title' => ['required',' min:3 ','unique:posts'],
            'description' => ['required',' min:10 '],
-           'id' => 'exist:posts,id'
+           'id' => 'exist:posts,id',
+           'featured' => 'required|image|mimes:jpg,png'
         ];
     }
 
@@ -36,6 +37,7 @@ class StorePostRequest extends FormRequest
             'title.min' => 'Title field must be at least 3 characters',
             'description.required' => 'Description field is required',
             'description.min' => 'Description field must be at least 10 characters',
+            'featured.mimes' => 'Photo extension must be png or jpg'
            ];
     }
 }

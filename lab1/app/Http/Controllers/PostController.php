@@ -30,10 +30,15 @@ class PostController extends Controller
     public function store(StorePostRequest $request)
     {
         $data=request()->all();
+
+        $featured = $request->featured;
+        $photo = time().$featured->getClientOriginalName();
+        $featured->move('uploads/posts',$photo);
+
         Post::create([
             'title' => $data['title'],
-            'slug' =>$data['slug'],
             'description' => $data['description'],
+            "featrued" => 'uploads/posts/'.$photo,
             'user_id' => $data['postCreator']
         ]);
         return redirect()->route('posts.index');

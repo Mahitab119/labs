@@ -25,7 +25,8 @@ class UpdatePostRequest extends FormRequest
     {
         return [
             'title' => ['min:3','unique:posts'],
-            'description' => ['required',' min:10 ']
+            'description' => ['required',' min:10 '],
+            'featured' => 'mimes:jpg,png'
             ];
     
     }

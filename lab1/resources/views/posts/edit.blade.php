@@ -21,7 +21,7 @@
 
     <div class="mb-3">
         <label for="slug" class="form-label">Slug</label>
-        <input type="text" name="slug" class="form-control" id="slug" value="{{$post->slug}}">
+        <input type="text" name="slug" class="form-control" id="slug" value="{{$post->slug}}" disabled>
     </div>
 
     <div class="mb-3">
@@ -36,6 +36,11 @@
             <option value="{{$user->id}}">{{$user->name}}</option>
             @endforeach
         </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="featured">Upload Photo</label>
+        <input type="file" class="form-control-file" name="featured">
     </div>
 
     <button class="btn btn-success">Update</button>

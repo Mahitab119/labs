@@ -19,11 +19,17 @@ class Post extends Model
         'title',
         'description',
         'user_id',
+        'featrued',
         'slug'
     ];
 
     public function user(){
         return $this->belongsTo(User::class);
+    }
+
+    public function getFeatruedAttribute($featrued)
+    {
+        return asset($featrued);
     }
 
     public function getSlugOptions() : SlugOptions
