@@ -26,7 +26,7 @@
       <td>{{ $post->title }}</td>
       <td>{{$post->slug}}</td>
       <td>{{ $post->user->name }}</td>
-      <td><img src="{{$post->featrued}}" alt="{{$post->title}}" class="img-thumbnail" width="100px" height="100px"></td>
+      <td><img src="{{$post->featrued}}" class="img-thumbnail" width="100px" height="100px"></td>
       <td>{{\Carbon\Carbon::parse($post->created_at)->format('Y-m-d') }}</td>
       <td>
         <a href="{{ route('posts.show', ['post' => $post['id']]) }}" class="btn btn-info">View</a>
