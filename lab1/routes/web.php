@@ -30,3 +30,16 @@ Route::get('/posts/{post}/delete', [PostController::class, 'delete'])->name('pos
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+use Laravel\Socialite\Facades\Socialite;
+ 
+Route::get('/auth/redirect', function () {
+    return Socialite::driver('github')->redirect();
+})->name('github.auth');
+ 
+Route::get('/auth/callback', function () {
+    $user = Socialite::driver('github')->user();
+ dd($user);
+    // $user->token
+});
